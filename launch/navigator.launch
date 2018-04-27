@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="debug_"  							default="True" />  
+  <arg name="image_topic_" 					default="/bebop/image_raw" />
+  <arg name="odom_topic_"						default="/bebop/odom" />
+  <arg name="landing_topic_"				default="/bebop/land" />
+  <arg name="takeoff_topic_"				default="/bebop/takeoff" />
+  <arg name="cmd_vel_topic_"				default="/bebop/cmd_vel" />
+  <arg name="camera_distance_"			default="15" />
+  <arg name="cmd_vel_increment_"		default="0.1" />
+  <arg name="focal_length_"					default="537.292878" />
+		
+  <node name="navigator" pkg="kingfisher_drone" type="navigator" output="screen"> 
+		<param name="debug_"								type="bool"				value="$(arg debug_)"/>
+		<param name="image_topic_"					type="string"			value="$(arg image_topic_)"/>
+		<param name="camera_distance_"			type="double"			value="$(arg camera_distance_)"/>
+		<param name="focal_length_"					type="double"			value="$(arg focal_length_)" />
+		<param name="odom_topic_"						type="string"			value="$(arg odom_topic_)"/>
+		<param name="cmd_vel_topic_"				type="string"			value="$(arg cmd_vel_topic_)"/>
+		<param name="takeoff_topic_"				type="string"			value="$(arg takeoff_topic_)"/>
+		<param name="landing_topic_"				type="string"			value="$(arg landing_topic_)"/>
+		<param name="cmd_vel_increment_"		type="double"			value="$(arg cmd_vel_increment_)"/>
+	</node>
+	
+</launch>
